@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<!-- 全局视图 -->
+		<global-results>
+			<result name="error">/error.jsp</result>
+			<result name="input">/error.jsp</result>
+		</global-results>
+		
+		<!-- 添加学生：http://localhost:8080/Work_Struts/MyAction_addStudent.action?username=xsx&age=12&time=2017-03-20%2009:31:23 
+			通过id查询学生：http://localhost:8080/Work_Struts/MyAction_selectStudent.action?id=4 
+			查询所有学生：http://localhost:8080/Work_Struts/MyAction_selectAll.action 
+			通过表连接查询爱好：http://localhost:8080/Work_Struts/MyAction_selectHabits.action?id=1 
+			更改学生信息：http://localhost:8080/Work_Struts/MyAction_updateStudent.action?id=4&username=xsx&age=22&time=2017-03-20%2009:31:23 
+			删除学生：http://localhost:8080/Work_Struts/MyAction_deleteStudent.action?id=4 -->
+		<action name="MyAction_*" class="com.thr.action.StudentAction" method="{1}">
+			<result name="list">/list.jsp</result>
+			<result name="update">/update.jsp</result>
+			<result name="habits">/habits.jsp</result>
+			<result>/success.jsp</result>
+		</action>
+	</package>
+</struts>
